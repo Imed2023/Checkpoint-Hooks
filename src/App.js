@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MovieList from './Components/MovieList';
 import SearchBar from './Components/SearchBar';
 import movies from './Movies';
+
+import PlayMovie from './Components/PlayMovie';
+import { Route, Routes } from 'react-router-dom';
 
 
 
@@ -18,10 +20,25 @@ function App() {
 
   return (
     <div className="App">
-      <SearchBar setByname={setByname} setByrate={setByrate}/>
-      <MovieList byname={byname} byrate={byrate}/>
+      
+      
+     
+    <SearchBar setByname={setByname} setByrate={setByrate}/>
+    <Routes>
+
+      <Route path='/' element={    <MovieList byname={byname} byrate={byrate}/>
+}/>
+      
+      <Route path='/playmovie/:id' element={<PlayMovie movie/>}/>
+      </Routes> 
+     
+      
       
     
+
+
+      
+  
 
 
     </div>
